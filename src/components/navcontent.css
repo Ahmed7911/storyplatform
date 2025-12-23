@@ -1,0 +1,128 @@
+
+/* NavContents.css */
+
+:root {
+  --bg: #ffffff;
+  --card: rgba(255, 255, 255, 0.8);
+  --border: #e5e7eb;
+  --text: #0f172a;
+  --muted: #64748b;
+  --primary: #6366f1; /* indigo */
+  --accent: #06b6d4;  /* cyan */
+  --shadow: 0 10px 25px rgba(2, 6, 23, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --card: rgba(15, 23, 42, 0.6);
+    --border: #1f2a44;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --primary: #818cf8;
+    --accent: #22d3ee;
+    --shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+  }
+}
+
+.nav-contents {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr));
+  gap: 1rem;
+  width: min(680px, 100%);
+  margin: 1.5rem auto;
+  padding: 1rem;
+  background:
+    radial-gradient(80% 100% at 0% 0%, #eef2ff55, transparent 60%),
+    radial-gradient(80% 100% at 100% 100%, #ecfeff55, transparent 60%),
+    var(--bg);
+  border-radius: 16px;
+}
+
+.nav-item {
+  -webkit-tap-highlight-color: transparent;
+  appearance: none;
+  border: 1px solid var(--border);
+  background: var(--card);
+  backdrop-filter: saturate(160%) blur(8px);
+  color: var(--text);
+  box-shadow: var(--shadow);
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    background-color 200ms ease;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.12);
+  border-color: color-mix(in srgb, var(--primary) 40%, var(--border));
+}
+
+.nav-item:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--accent) 55%, transparent);
+  outline-offset: 2px;
+}
+
+.nav-item:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow);
+}
+
+.nav-item.active {
+  border-color: color-mix(in srgb, var(--primary) 55%, var(--border));
+  background: linear-gradient(
+      0deg,
+      color-mix(in srgb, var(--primary) 10%, transparent),
+      transparent
+    ),
+    var(--card);
+}
+
+.nav-icon {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.12));
+  flex-shrink: 0;
+}
+
+.caption {
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--text);
+  margin: 0;
+}
+
+.caption::after {
+  content: " →";
+  color: color-mix(in srgb, var(--primary) 75%, var(--text));
+  transition: transform 160ms ease;
+}
+
+.nav-item:hover .caption::after {
+  content: " ↗";
+}
+
+@media (max-width: 520px) {
+  .nav-contents {
+    grid-template-columns: 1fr;
+  }
+  .nav-item {
+    padding: 0.9rem 1rem;
+  }
+  .nav-icon {
+    width: 32px;
+    height: 32px;
+  }
+}

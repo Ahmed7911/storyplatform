@@ -1,0 +1,51 @@
+/* Header.css */
+.mainHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: linear-gradient(135deg, #434344 0%, #d5d4d6 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.searchDivLeft {
+  flex: 1;
+  max-width: 500px;
+  margin-right: 2rem;
+}
+
+.notificationsImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.notificationsImage:hover {
+  transform: scale(1.1);
+}
+
+.userProfileRight {
+  margin-left: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .mainHeader {
+    padding: 0.75rem 1rem;
+  }
+  
+  .searchDivLeft {
+    margin-right: 1rem;
+    max-width: 300px;
+  }
+  
+  .userProfileRight {
+    margin-left: 1rem;
+  }
+}

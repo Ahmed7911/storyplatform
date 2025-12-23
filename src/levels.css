@@ -1,0 +1,213 @@
+
+:root {
+  --bg: #0b1020;
+  --card: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.16);
+  --text: #e6eefc;
+  --muted: #b8c4dd;
+  --accent: #2563eb;        /* blue-600 */
+  --accent-dark: #1e40af;   /* blue-800 */
+  --violet: #7c3aed;        /* violet-600 */
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Page background */
+.levels-page {
+  min-height: 100dvh;
+  background: radial-gradient(1200px 600px at 20% 10%, #0f1a3a 0%, var(--bg) 60%);
+  color: var(--text);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background blobs (kept behind content) */
+.bg-blob {
+  position: absolute;
+  z-index: 0;
+  filter: blur(60px);
+  opacity: 0.35;
+  border-radius: 50%;
+  animation: float 14s ease-in-out infinite;
+  pointer-events: none;
+}
+.bg-blob-1 {
+  width: 420px; height: 420px;
+  background: #6d28d9; /* violet-700 */
+  top: -100px; left: -80px;
+  animation-delay: 0s;
+}
+.bg-blob-2 {
+  width: 520px; height: 520px;
+  background: #0ea5e9; /* sky-500 */
+  bottom: -140px; right: -100px;
+  animation-delay: 3s;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-10px) translateX(6px) scale(1.02); }
+}
+
+/* Wrapper */
+.levels-wrap {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 1100px);
+}
+
+/* Header */
+.levels-header {
+  text-align: center;
+  margin-bottom: 22px;
+  animation: fadeUp 600ms ease-out both;
+}
+.levels-title {
+  font-size: clamp(24px, 2.4vw, 36px);
+  margin: 0;
+}
+.levels-sub {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+/* Grid of stage cards */
+.stages-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 820px) {
+  .stages-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1180px) {
+  .stages-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Stage card */
+.stage-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  overflow: hidden;       /* ✅ clip internal animations */
+  backdrop-filter: blur(10px);
+  transition: transform 140ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+.stage-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.35);
+  border-color: rgba(255,255,255,0.25);
+}
+
+/* Card header (toggle) */
+.stage-toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  background: transparent;
+  color: var(--text);
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+.stage-title {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  font-size: 18px;
+}
+.chevron {
+  width: 18px; height: 18px;
+  border-right: 2px solid var(--text);
+  border-bottom: 2px solid var(--text);
+  transform: rotate(-45deg);
+  transition: transform 200ms ease;
+}
+.stage-card.open .chevron {
+  transform: rotate(45deg); /* chevron down/up */
+}
+
+/* Expansion panel */
+.levels-panel {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-6px);
+  overflow: hidden;
+  transition: max-height 380ms ease, opacity 260ms ease, transform 260ms ease;
+}
+.levels-panel-open {
+  max-height: 1000px;   /* large enough to hold items */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sublevels grid */
+.levels-grid {
+  display: grid;
+  gap: 12px;
+  padding: 14px 16px 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+@media (max-width: 560px) {
+  .levels-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Sublevel item (clickable) */
+.level-item {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 14px;
+  padding: 10px;
+  cursor: pointer;
+  color: var(--text);
+  text-align: center;
+  transition: transform 120ms ease, box-shadow 160ms ease, border-color 160ms ease, background-color 160ms ease;
+  animation: fadeSlide 320ms ease-out both;
+  animation-delay: calc(var(--i, 0) * 70ms); /* staggered entrance */
+}
+.level-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.35);
+  border-color: rgba(255,255,255,0.3);
+  background-color: rgba(255,255,255,0.12);
+}
+.level-item:active {
+  transform: translateY(0);
+}
+
+.level-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.level-label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0)   scale(1);     }
+}
+

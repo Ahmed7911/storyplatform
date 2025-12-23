@@ -1,0 +1,103 @@
+
+/* ----- Root Colors (Light + Dark mode support) ----- */
+:root {
+  --bg: #f8fafc;
+  --fg: #0f172a;
+  --card: #ffffffd9;
+  --border: #e2e8f0;
+  --primary: #6366f1;
+  --accent: #06b6d4;
+  --shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --fg: #e2e8f0;
+    --card: #1e293bd9;
+    --border: #334155;
+    --primary: #818cf8;
+    --accent: #22d3ee;
+    --shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* ----- Layout Container ----- */
+.footer-sections {
+  margin-top: 2.5rem;
+  padding: 1rem 1.25rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+
+  background:
+    radial-gradient(circle at 0% 0%, #eef2ff55, transparent 60%),
+    radial-gradient(circle at 100% 100%, #cffafe55, transparent 60%),
+    var(--bg);
+
+  border-top: 1px solid var(--border);
+}
+
+/* ----- Icon Cards ----- */
+.footerSectionIcon {
+  width: 65px;
+  height: 65px;
+  border-radius: 14px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px) saturate(160%);
+
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    background-color 200ms ease,
+    border-color 200ms ease;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+}
+
+/* Hover animation */
+.footerSectionIcon:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+}
+
+/* Ripple on click */
+.footerSectionIcon:active {
+  transform: translateY(0);
+}
+
+/* Optional icon images — if you want to add them */
+.footerSectionIcon::before {
+  content: "";
+  width: 32px;
+  height: 32px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* --- Assign actual icons depending on section --- */
+#about.footerSectionIcon::before {
+  background-image: url("../assets/images/aboutMeIcon.png");
+}
+
+#contact.footerSectionIcon::before {
+  background-image: url("../assets/images/contactMeIcon.png");
+}
+
+/* Responsive */
+@media (max-width: 520px) {
+  .footer-sections {
+    gap: 1rem;
+  }
+  .footerSectionIcon {
+    width: 58px;
+    height: 58px;
+  }
+}

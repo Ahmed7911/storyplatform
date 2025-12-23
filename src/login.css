@@ -1,0 +1,209 @@
+
+:root {
+  --bg: #0b1020;
+  --card: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.15);
+  --text: #e6eefc;
+  --muted: #b8c4dd;
+  --accent: #2563eb;       /* blue-600 */
+  --accent-dark: #1e40af;  /* blue-800 */
+  --success: #22c55e;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Page background with subtle gradient */
+.login-page {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(1200px 600px at 20% 10%, #0f1a3a 0%, var(--bg) 60%);
+  color: var(--text);
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background blobs */
+.bg-blob {
+  position: absolute;
+  filter: blur(60px);
+  opacity: 0.35;
+  border-radius: 50%;
+  animation: float 14s ease-in-out infinite;
+  pointer-events: none;
+}
+.bg-blob-1 {
+  width: 420px; height: 420px;
+  background: #6d28d9; /* violet-700 */
+  top: -100px; left: -80px;
+  animation-delay: 0s;
+}
+.bg-blob-2 {
+  width: 520px; height: 520px;
+  background: #0ea5e9; /* sky-500 */
+  bottom: -140px; right: -100px;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0) scale(1); }
+  50% { transform: translateY(-12px) translateX(6px) scale(1.02); }
+}
+
+/* Card layout */
+.login-card {
+  width: min(100%, 1000px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  position: relative;
+  z-index: 2;
+}
+
+/* Visual side (hidden on small screens) */
+.login-visual {
+  position: relative;
+  background: linear-gradient(160deg, rgba(37, 99, 235, 0.25), rgba(99, 102, 241, 0.15));
+  display: none; /* hidden by default for mobile */
+  align-items: center;
+  justify-content: center;
+}
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.04);
+  animation: heroPulse 9s ease-in-out infinite;
+}
+@keyframes heroPulse {
+  0%, 100% { transform: scale(1.04); filter: saturate(1); }
+  50% { transform: scale(1.07); filter: saturate(1.15); }
+}
+
+/* Form side */
+.login-form-side {
+  padding: clamp(24px, 4vw, 48px);
+}
+
+.header-wrap {
+  text-align: center;
+  margin-bottom: 22px;
+  animation: fadeUp 600ms ease-out both;
+}
+.login-title {
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+.subheading {
+  color: var(--muted);
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+/* Form */
+.login-form {
+  display: grid;
+  gap: 14px;
+  animation: fadeUp 700ms 80ms ease-out both;
+}
+.form-group {
+  display: grid;
+  gap: 6px;
+}
+
+/* If your TextBox renders an input, you can enhance focus styles globally */
+input[type="text"], input[type="email"], input[type="password"] {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
+}
+input::placeholder { color: #93a1bd; }
+input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Actions */
+.actions {
+  margin-top: 4px;
+  display: grid;
+  gap: 10px;
+}
+
+/* Enhance your custom Button if it renders a button element */
+button {
+  border-radius: 12px !important;
+  padding: 12px 16px !important;
+  font-weight: 600 !important;
+  transition: transform 120ms ease, box-shadow 160ms ease, background-color 160ms ease;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+}
+button:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+button:disabled {
+  filter: grayscale(0.2);
+  opacity: 0.85;
+  cursor: not-allowed;
+}
+
+.signup-text {
+  text-align: center;
+  color: var(--muted);
+  font-size: 14px;
+  margin-top: 6px;
+}
+.signup-link {
+  color: var(--text);
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+}
+.signup-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -2px;
+  width: 100%; height: 2px;
+  background: linear-gradient(90deg, var(--accent), #8b5cf6);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms ease;
+}
+.signup-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* Entrance animation */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (min-width: 860px) {
+  .login-card {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+  .login-visual {
+    display: flex;
+    min-height: 520px;
+  }
+}
+@media (max-width: 380px) {
+  .login-form-side { padding: 18px; }
+}
