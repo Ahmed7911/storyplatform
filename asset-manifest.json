@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Ahmed7911/storyplatform.git/static/css/main.a522e282.css",
+    "main.js": "/Ahmed7911/storyplatform.git/static/js/main.7ca87b77.js",
+    "static/media/Ahmed_Mostaaf.png": "/Ahmed7911/storyplatform.git/static/media/Ahmed_Mostaaf.ffea1f2135acddcb8bc7.png",
+    "static/media/aboutMeIcon.png": "/Ahmed7911/storyplatform.git/static/media/aboutMeIcon.a92cfb158f70aba30b2a.png",
+    "static/media/contactMeIcon.png": "/Ahmed7911/storyplatform.git/static/media/contactMeIcon.1547f5d09efdeeb55eda.png",
+    "static/media/level4.png": "/Ahmed7911/storyplatform.git/static/media/level4.21e60fdb613b51547931.png",
+    "static/media/level3.png": "/Ahmed7911/storyplatform.git/static/media/level3.f617597ebb3050c378fc.png",
+    "static/media/level2.png": "/Ahmed7911/storyplatform.git/static/media/level2.f3b055bc5cb180db321e.png",
+    "static/media/level6.png": "/Ahmed7911/storyplatform.git/static/media/level6.77a4918508f6b8dd415f.png",
+    "static/media/level1.png": "/Ahmed7911/storyplatform.git/static/media/level1.1cf4e1ef03b7576e40c8.png",
+    "static/media/level5.png": "/Ahmed7911/storyplatform.git/static/media/level5.d2efb924ddb1891261e3.png",
+    "index.html": "/Ahmed7911/storyplatform.git/index.html",
+    "main.a522e282.css.map": "/Ahmed7911/storyplatform.git/static/css/main.a522e282.css.map",
+    "main.7ca87b77.js.map": "/Ahmed7911/storyplatform.git/static/js/main.7ca87b77.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a522e282.css",
+    "static/js/main.7ca87b77.js"
+  ]
+}
