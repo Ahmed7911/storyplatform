@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/story-platform/static/css/main.70992462.css",
-    "main.js": "/story-platform/static/js/main.9ad6099e.js",
-    "static/media/Ahmed_Mostaaf.png": "/story-platform/static/media/Ahmed_Mostaaf.ffea1f2135acddcb8bc7.png",
-    "static/media/aboutMeIcon.png": "/story-platform/static/media/aboutMeIcon.a92cfb158f70aba30b2a.png",
-    "static/media/contactMeIcon.png": "/story-platform/static/media/contactMeIcon.1547f5d09efdeeb55eda.png",
-    "static/media/level4.png": "/story-platform/static/media/level4.21e60fdb613b51547931.png",
-    "static/media/level3.png": "/story-platform/static/media/level3.f617597ebb3050c378fc.png",
-    "static/media/level2.png": "/story-platform/static/media/level2.f3b055bc5cb180db321e.png",
-    "static/media/level6.png": "/story-platform/static/media/level6.77a4918508f6b8dd415f.png",
-    "static/media/level1.png": "/story-platform/static/media/level1.1cf4e1ef03b7576e40c8.png",
-    "static/media/level5.png": "/story-platform/static/media/level5.d2efb924ddb1891261e3.png",
-    "index.html": "/story-platform/index.html",
-    "main.70992462.css.map": "/story-platform/static/css/main.70992462.css.map",
-    "main.9ad6099e.js.map": "/story-platform/static/js/main.9ad6099e.js.map"
+    "main.css": "/storyplatform/static/css/main.d298b3ee.css",
+    "main.js": "/storyplatform/static/js/main.fd6832c4.js",
+    "static/media/Ahmed_Mostaaf.png": "/storyplatform/static/media/Ahmed_Mostaaf.ffea1f2135acddcb8bc7.png",
+    "static/media/aboutMeIcon.png": "/storyplatform/static/media/aboutMeIcon.a92cfb158f70aba30b2a.png",
+    "static/media/contactMeIcon.png": "/storyplatform/static/media/contactMeIcon.1547f5d09efdeeb55eda.png",
+    "static/media/level4.png": "/storyplatform/static/media/level4.21e60fdb613b51547931.png",
+    "static/media/level3.png": "/storyplatform/static/media/level3.f617597ebb3050c378fc.png",
+    "static/media/level2.png": "/storyplatform/static/media/level2.f3b055bc5cb180db321e.png",
+    "static/media/level6.png": "/storyplatform/static/media/level6.77a4918508f6b8dd415f.png",
+    "static/media/level1.png": "/storyplatform/static/media/level1.1cf4e1ef03b7576e40c8.png",
+    "static/media/level5.png": "/storyplatform/static/media/level5.d2efb924ddb1891261e3.png",
+    "index.html": "/storyplatform/index.html",
+    "main.d298b3ee.css.map": "/storyplatform/static/css/main.d298b3ee.css.map",
+    "main.fd6832c4.js.map": "/storyplatform/static/js/main.fd6832c4.js.map"
   },
   "entrypoints": [
-    "static/css/main.70992462.css",
-    "static/js/main.9ad6099e.js"
+    "static/css/main.d298b3ee.css",
+    "static/js/main.fd6832c4.js"
   ]
 }
